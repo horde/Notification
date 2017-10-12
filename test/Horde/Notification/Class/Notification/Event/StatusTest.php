@@ -6,7 +6,6 @@
  * @package  Notification
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @link     http://pear.horde.org/index.php?package=Notification
  */
 
 /**
@@ -21,7 +20,6 @@
  * @package  Notification
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @link     http://pear.horde.org/index.php?package=Notification
  */
 class Horde_Notification_Class_Notification_Event_StatusTest extends Horde_Test_Case
 {
