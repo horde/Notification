@@ -10,7 +10,7 @@
   <email>jan@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-10-17</date>
+ <date>2017-10-20</date>
  <version>
   <release>2.0.5</release>
   <api>1.0.0</api>
@@ -83,7 +83,6 @@
       <file name="AllTests.php" role="test" />
       <file name="Autoload.php" role="test" />
       <file name="bootstrap.php" role="test" />
-      <file name="phpunit.xml" role="test" />
      </dir> <!-- /test/Horde/Notification -->
     </dir> <!-- /test/Horde -->
    </dir> <!-- /test -->
@@ -172,7 +171,6 @@
    <install as="Horde/Notification/Class/Notification/Listener/StatusTest.php" name="test/Horde/Notification/Class/Notification/Listener/StatusTest.php" />
    <install as="Horde/Notification/Class/Notification/ListenerTest.php" name="test/Horde/Notification/Class/Notification/ListenerTest.php" />
    <install as="Horde/Notification/Class/NotificationTest.php" name="test/Horde/Notification/Class/NotificationTest.php" />
-   <install as="Horde/Notification/phpunit.xml" name="test/Horde/Notification/phpunit.xml" />
   </filelist>
  </phprelease>
  <changelog>
@@ -397,7 +395,7 @@ Converted to package.xml 2.0 for pear.horde.org
    <stability>
     <release>stable</release>
     <api>stable</api></stability>
-   <date>2017-10-17</date>
+   <date>2017-10-20</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
 * 
