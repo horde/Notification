@@ -10,7 +10,7 @@
   <email>jan@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-10-20</date>
+ <date>2017-10-27</date>
  <version>
   <release>2.0.5</release>
   <api>1.0.0</api>
@@ -24,6 +24,13 @@
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
+   <dir name="doc">
+    <dir name="Horde">
+     <dir name="Notification">
+      <file name="CHANGES" role="doc" />
+     </dir> <!-- /doc/Horde/Notification -->
+    </dir> <!-- /doc/Horde -->
+   </dir> <!-- /doc -->
    <dir name="lib">
     <dir name="Horde">
      <dir name="Notification">
@@ -142,6 +149,7 @@
  </dependencies>
  <phprelease>
   <filelist>
+   <install as="CHANGES" name="doc/Horde/Notification/CHANGES" />
    <install as="Horde/Notification.php" name="lib/Horde/Notification.php" />
    <install as="Horde/Notification/Event.php" name="lib/Horde/Notification/Event.php" />
    <install as="Horde/Notification/Event/Status.php" name="lib/Horde/Notification/Event/Status.php" />
@@ -394,7 +402,7 @@
    <stability>
     <release>stable</release>
     <api>stable</api></stability>
-   <date>2017-10-20</date>
+   <date>2017-10-27</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
    </notes>
