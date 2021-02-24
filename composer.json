@@ -34,9 +34,6 @@
     "autoload": {
         "psr-0": {
             "Horde_Notification": "lib/"
-        },
-        "psr-4": {
-            "Horde\\Notification\\": "src/"
         }
     }
 }
