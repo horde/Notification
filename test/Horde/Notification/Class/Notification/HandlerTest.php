@@ -7,6 +7,10 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+namespace Horde\Notification;
+use \Notification;
+use \Horde_Notification_Listener;
+use Horde_Test_Case;
 
 /**
  * Test the basic notification handler class.
@@ -22,15 +26,15 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
 
-class Horde_Notification_Class_Notification_HandlerTest extends Horde_Test_Case
+class HandlerTest extends Horde_Test_Case
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->storage = new Horde_Notification_Storage_Session('test');
         $this->handler = new Horde_Notification_Handler($this->storage);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         unset($_SESSION);
     }

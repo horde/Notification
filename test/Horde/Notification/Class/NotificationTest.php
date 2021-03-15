@@ -7,6 +7,9 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+namespace Horde\Notification;
+use Horde_Test_Case;
+use Horde_Notification;
 
 /**
  * Test the notification class.
@@ -22,9 +25,9 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
 
-class Horde_Notification_Class_NotificationTest extends Horde_Test_Case
+class NotificationTest extends Horde_Test_Case
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         unset($_SESSION);
     }

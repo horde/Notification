@@ -7,6 +7,8 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+namespace Horde\Notification;
+use Horde_Test_Case;
 
 /**
  * Test the logging notification handler class.
@@ -22,10 +24,9 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
 
-class Horde_Notification_Class_Notification_Handler_Decorator_LogTest
-extends Horde_Test_Case
+class LogTest extends Horde_Test_Case
 {
-    public function setUp()
+    public function setUp(): void
     {
         if (!class_exists('Horde_Log_Logger')) {
             $this->markTestSkipped('The Horde_Log package is not installed!');

@@ -7,6 +7,8 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+namespace Horde\Notification;
+use Horde_Test_Case;
 
 /**
  * Test the alarm notification handler class.
@@ -22,10 +24,9 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
 
-class Horde_Notification_Class_Notification_Handler_Decorator_AlarmTest
-extends Horde_Test_Case
+class AlarmTest extends Horde_Test_Case
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->markTestIncomplete('Currently broken');
         if (!class_exists('Horde_Alarm')) {
