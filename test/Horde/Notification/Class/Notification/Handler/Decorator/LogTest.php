@@ -9,6 +9,9 @@
  */
 namespace Horde\Notification;
 use Horde_Test_Case;
+use \Horde_Notification_Handler_Decorator_Log;
+use \Horde_Notification_Event;
+use \Exception;
 
 /**
  * Test the logging notification handler class.
@@ -32,7 +35,7 @@ class LogTest extends Horde_Test_Case
             $this->markTestSkipped('The Horde_Log package is not installed!');
         }
 
-        $this->logger = $this->getMock('Horde_Log_Logger');
+        $this->logger = $this->getMockBuilder('Horde_Log_Logger')->getMock();
         $this->log = new Horde_Notification_Handler_Decorator_Log(
             $this->logger
         );

@@ -7,6 +7,11 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+namespace Horde\Notification;
+use \Notification;
+use Horde_Test_Case;
+use \Horde_Notification_Listener_Audio;
+use \Horde_Notification_Event;
 
 /**
  * Test the audio listener class.
@@ -21,7 +26,7 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Notification_Class_Notification_Listener_AudioTest extends Horde_Test_Case
+class AudioTest extends Horde_Test_Case
 {
     public function testMethodHandleHasEventClassForAudioMessages()
     {

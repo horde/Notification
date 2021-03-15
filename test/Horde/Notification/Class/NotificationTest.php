@@ -10,6 +10,8 @@
 namespace Horde\Notification;
 use Horde_Test_Case;
 use Horde_Notification;
+use \Horde_Notification_Storage_Session;
+use \Horde_Notification_Handler;
 
 /**
  * Test the notification class.

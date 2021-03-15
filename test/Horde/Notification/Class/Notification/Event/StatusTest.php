@@ -7,6 +7,9 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+namespace Horde\Notification\Notification\Event;
+use \Horde_Test_Case;
+use \Horde_Notification_Event_Status;
 
 /**
  * Test the status event class.
@@ -21,7 +24,7 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Notification_Class_Notification_Event_StatusTest extends Horde_Test_Case
+class StatusTest extends Horde_Test_Case
 {
     public function testMethodTostringHasResultTheTextOfTheEvent()
     {
