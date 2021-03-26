@@ -8,7 +8,7 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
 namespace Horde\Notification;
-use Horde_Test_Case;
+use Horde_Test_Case as TestCase;
 use Horde_Notification;
 use \Horde_Notification_Storage_Session;
 use \Horde_Notification_Handler;
@@ -27,7 +27,7 @@ use \Horde_Notification_Handler;
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
 
-class NotificationTest extends Horde_Test_Case
+class NotificationTest extends TestCase
 {
     public function tearDown(): void
     {

@@ -103,7 +103,8 @@ class HandlerTest extends Horde_Test_Case
     public function testMethodClearHasPostconditionThatTheStorageOfTheSpecifiedListenerWasCleared()
     {
         $this->expectException('Horde_Exception');
-        $storage = $this->getMockBuilder('Horde_Notification_Storage_Interface')->getMock();
+        $storage = $this->getMockBuilder('Horde_Notification_Storage_Interface')
+                            ->getMock();
         $storage->expects($this->once())
             ->method('clear')
             ->with('dummy');
