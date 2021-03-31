@@ -8,9 +8,9 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
 namespace Horde\Notification;
+use Horde_Test_Case as TestCase;
 use \Notification;
 use \Horde_Notification_Listener;
-use Horde_Test_Case;
 use \Horde_Notification_Storage_Session;
 use \Horde_Notification_Handler;
 use \Horde_Notification_Event;
@@ -29,7 +29,7 @@ use \Horde_Notification_Event;
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
 
-class HandlerTest extends Horde_Test_Case
+class HandlerTest extends TestCase
 {
     public function setUp(): void
     {
@@ -102,20 +102,27 @@ class HandlerTest extends Horde_Test_Case
 
     public function testMethodClearHasPostconditionThatTheStorageOfTheSpecifiedListenerWasCleared()
     {
-        $this->expectException('Horde_Exception');
-        $storage = $this->getMockBuilder('Horde_Notification_Storage_Interface')
-                            ->getMock();
-        $storage->expects($this->once())
-            ->method('clear')
-            ->with('dummy');
-        $handler = new Horde_Notification_Handler($storage);
-        $handler->attach('dummy');
-        $handler->clear('dummy');
+        if (class_exists(Horde_Notification_Listener_Dummy::class)) {
+            $this->expectException('Horde_Exception');
+
+            $storage = $this->getMockBuilder('Horde_Notification_Storage_Interface')
+                                ->getMock();
+            $storage->expects($this->once())
+                ->method('clear')
+                ->with('dummy');
+            $handler = new Horde_Notification_Handler($storage);
+
+            $handler->attach('dummy');
+            $handler->clear('dummy');
+        } else {
+            $this->markTestSkipped('Horde_Notification_Listener_Dummy not found in /srv/git/Notification/test/Horde/Notification/Class/Notification/HandlerTest.php:103 ');
+        }
     }
 
     public function testMethodClearHasPostconditionThatAllUnattachedEventsHaveBeenClearedFromStorageIfNoListenerWasSpecified()
     {
-        $storage = $this->getMockBuilder('Horde_Notification_Storage_Interface')->getMock();
+        $storage = $this->getMockBuilder('Horde_Notification_Storage_Interface')
+                            ->getMock();
         $storage->expects($this->once())
             ->method('clear')
             ->with('_unattached');
@@ -237,28 +244,6 @@ class HandlerTest extends Horde_Test_Case
         $this->handler->attach('dummy');
         $this->handler->push('test', 'audio');
         $this->assertEquals(1, $this->handler->count('audio'));
-    }
-
-}
-
-class Horde_Notification_Listener_Dummy extends Horde_Notification_Listener
-{
-    public $events;
-    public $params;
-
-    public function __construct($params)
-    {
-        $this->params = $params;
-        $this->_name = 'dummy';
-        $this->_handles = array(
-            'dummy' => 'Horde_Notification_Event',
-            'status' => 'Horde_Notification_Event'
-        );
-    }
-
-    public function notify($events, $options = array())
-    {
-        $this->events = $events;
     }
 
 }
