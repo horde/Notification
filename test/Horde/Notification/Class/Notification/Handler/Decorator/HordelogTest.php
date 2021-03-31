@@ -7,6 +7,9 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+namespace Horde\Notification;
+use \Notification;
+use Horde_Test_Case;
 
 /**
  * Test the notification handler class that logs to the horde log.
@@ -22,8 +25,7 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
 
-class Horde_Notification_Class_Notification_Handler_Decorator_HordelogTest
-extends Horde_Test_Case
+class HordelogTest extends Horde_Test_Case
 {
     public function testNoneAvailable()
     {

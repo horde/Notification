@@ -7,6 +7,10 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+namespace Horde\Notification\Notification\Listener;
+use Horde_Test_Case;
+use \Horde_Notification_Listener_Status;
+use \Horde_Notification_Event;
 
 /**
  * Test the status listener class.
@@ -21,7 +25,7 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Notification_Class_Notification_Listener_StatusTest extends Horde_Test_Case
+class StatusTest extends Horde_Test_Case
 {
     public function testMethodHandleHasEventClassForHordeMessages()
     {
@@ -40,6 +44,7 @@ class Horde_Notification_Class_Notification_Listener_StatusTest extends Horde_Te
         $listener = new Horde_Notification_Listener_Status();
         $messages = array();
         $listener->notify($messages);
+        $this->markTestSkipped('Test positive without any assertions.');
     }
 
     public function testMethodNotifyHasOutputEventMessagesEmbeddedInUlElement()

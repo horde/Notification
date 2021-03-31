@@ -7,6 +7,10 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+namespace Horde\Notification;
+use \Notification;
+use Horde_Test_Case;
+use \Horde_Notification_Event;
 
 /**
  * Test the basic event class.
@@ -21,7 +25,7 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Notification_Class_Notification_EventTest extends Horde_Test_Case
+class EventTest extends Horde_Test_Case
 {
     public function testMethodConstructHasPostconditionThatTheGivenMessageWasSavedIfItWasNotNull()
     {
