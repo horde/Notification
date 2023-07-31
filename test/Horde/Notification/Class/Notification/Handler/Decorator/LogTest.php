@@ -22,6 +22,7 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
 
+#[\AllowDynamicProperties]
 class Horde_Notification_Class_Notification_Handler_Decorator_LogTest
 extends Horde_Test_Case
 {
