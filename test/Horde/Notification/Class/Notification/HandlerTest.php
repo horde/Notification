@@ -24,13 +24,13 @@
 
 class Horde_Notification_Class_Notification_HandlerTest extends Horde_Test_Case
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->storage = new Horde_Notification_Storage_Session('test');
         $this->handler = new Horde_Notification_Handler($this->storage);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         unset($_SESSION);
     }
@@ -106,7 +106,7 @@ class Horde_Notification_Class_Notification_HandlerTest extends Horde_Test_Case
 
     public function testMethodClearHasPostconditionThatTheStorageOfTheSpecifiedListenerWasCleared()
     {
-        $storage = $this->getMock('Horde_Notification_Storage_Interface');
+        $storage = $this->getMockBuilder('Horde_Notification_Storage_Interface')->getMock();
         $storage->expects($this->once())
             ->method('clear')
             ->with('dummy');
@@ -117,7 +117,7 @@ class Horde_Notification_Class_Notification_HandlerTest extends Horde_Test_Case
 
     public function testMethodClearHasPostconditionThatAllUnattachedEventsHaveBeenClearedFromStorageIfNoListenerWasSpecified()
     {
-        $storage = $this->getMock('Horde_Notification_Storage_Interface');
+        $storage = $this->getMockBuilder('Horde_Notification_Storage_Interface')->getMock();
         $storage->expects($this->once())
             ->method('clear')
             ->with('_unattached');
@@ -139,7 +139,7 @@ class Horde_Notification_Class_Notification_HandlerTest extends Horde_Test_Case
 
     public function testMethodAdddecoratorHasPostconditionThatTheGivenDecoratorWasAddedToTheHandlerAndReceivesPushCalls()
     {
-        $decorator = $this->getMock('Horde_Notification_Handler_Decorator_Base');
+        $decorator = $this->getMockBuilder('Horde_Notification_Handler_Decorator_Base')->getMock();
         $decorator->expects($this->once())
             ->method('push')
             ->with($this->isInstanceOf('Horde_Notification_Event'));
@@ -151,7 +151,7 @@ class Horde_Notification_Class_Notification_HandlerTest extends Horde_Test_Case
 
     public function testMethodAdddecoratorHasPostconditionThatTheGivenDecoratorWasAddedToTheHandlerAndReceivesNotifyCalls()
     {
-        $decorator = $this->getMock('Horde_Notification_Handler_Decorator_Base');
+        $decorator = $this->getMockBuilder('Horde_Notification_Handler_Decorator_Base')->getMock();
         $decorator->expects($this->once())
             ->method('notify');
         $this->handler->attach('audio');

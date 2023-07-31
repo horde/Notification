@@ -25,13 +25,13 @@
 class Horde_Notification_Class_Notification_Handler_Decorator_LogTest
 extends Horde_Test_Case
 {
-    public function setUp()
+    public function setUp(): void
     {
         if (!class_exists('Horde_Log_Logger')) {
             $this->markTestSkipped('The Horde_Log package is not installed!');
         }
 
-        $this->logger = $this->getMock('Horde_Log_Logger');
+        $this->logger = $this->getMockBuilder('Horde_Log_Logger')->getMock();
         $this->log = new Horde_Notification_Handler_Decorator_Log(
             $this->logger
         );

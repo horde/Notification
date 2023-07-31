@@ -24,7 +24,7 @@
 
 class Horde_Notification_Class_NotificationTest extends Horde_Test_Case
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         unset($_SESSION);
     }

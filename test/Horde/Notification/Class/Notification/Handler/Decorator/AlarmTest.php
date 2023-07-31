@@ -25,7 +25,7 @@
 class Horde_Notification_Class_Notification_Handler_Decorator_AlarmTest
 extends Horde_Test_Case
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->markTestIncomplete('Currently broken');
         if (!class_exists('Horde_Alarm')) {

@@ -23,7 +23,7 @@
  */
 class Horde_Notification_Class_Notification_ListenerTest extends Horde_Test_Case
 {
-    public function setUp()
+    public function setUp(): void
     {
         if (!class_exists('PEAR_Error')) {
             $this->markTestSkipped('The PEAR_Error class is not available!');

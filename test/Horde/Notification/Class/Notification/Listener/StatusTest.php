@@ -37,6 +37,7 @@ class Horde_Notification_Class_Notification_Listener_StatusTest extends Horde_Te
 
     public function testMethodNotifyHasNoOutputIfTheMessageStackIsEmpty()
     {
+        $this->expectNotToPerformAssertions();
         $listener = new Horde_Notification_Listener_Status();
         $messages = array();
         $listener->notify($messages);
