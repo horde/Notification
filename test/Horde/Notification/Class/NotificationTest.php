@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Test the notification class.
  *
@@ -7,16 +8,18 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+
 namespace Horde\Notification;
+
 use Horde_Test_Case as TestCase;
 use Horde_Notification;
-use \Horde_Notification_Storage_Session;
-use \Horde_Notification_Handler;
+use Horde_Notification_Storage_Session;
+use Horde_Notification_Handler;
 
 /**
  * Test the notification class.
  *
- * Copyright 2009-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2009-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -25,6 +28,7 @@ use \Horde_Notification_Handler;
  * @package  Notification
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
+ * @coversNothing
  */
 
 class NotificationTest extends TestCase
@@ -44,7 +48,7 @@ class NotificationTest extends TestCase
     public function testMethodConstructHasPostconditionThatTheSessionStackGotInitializedAsArray()
     {
         $notification = Horde_Notification_Instance::newInstance('test');
-        $this->assertEquals(array(), $_SESSION['test']);
+        $this->assertEquals([], $_SESSION['test']);
     }
 }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Test the audio listener class.
  *
@@ -7,16 +8,18 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+
 namespace Horde\Notification;
-use \Notification;
+
+use Notification;
 use Horde_Test_Case;
-use \Horde_Notification_Listener_Audio;
-use \Horde_Notification_Event;
+use Horde_Notification_Listener_Audio;
+use Horde_Notification_Event;
 
 /**
  * Test the audio listener class.
  *
- * Copyright 2009-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2009-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -25,6 +28,7 @@ use \Horde_Notification_Event;
  * @package  Notification
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
+ * @coversNothing
  */
 class AudioTest extends Horde_Test_Case
 {
@@ -44,7 +48,7 @@ class AudioTest extends Horde_Test_Case
     {
         $listener = new Horde_Notification_Listener_Audio();
         $event = new Horde_Notification_Event('test');
-        $messages = array($event);
+        $messages = [$event];
         $this->expectOutputString(
             '<embed src="test" width="0" height="0" autostart="true" />'
         );

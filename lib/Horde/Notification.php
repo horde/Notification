@@ -1,10 +1,11 @@
 <?php
+
 /**
  * The Horde_Notification:: class provides a subject-observer pattern for
  * raising and showing messages of different types and to different
  * listeners.
  *
- * Copyright 2001-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2001-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -21,7 +22,7 @@ class Horde_Notification
      *
      * @var Horde_Notification
      */
-    protected static $_instances = array();
+    protected static $_instances = [];
 
     /**
      * Returns a reference to the global notification handler, only

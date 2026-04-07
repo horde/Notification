@@ -1,9 +1,10 @@
 <?php
+
 /**
  * The Horde_Notification_Listener_Audio:: class provides functionality for
  * inserting embedded audio notifications from the stack into the page.
  *
- * Copyright 2005-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2005-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -31,7 +32,7 @@ class Horde_Notification_Listener_Audio extends Horde_Notification_Listener
      * @param array $events   The list of events to handle.
      * @param array $options  An array of options (not used).
      */
-    public function notify($events, $options = array())
+    public function notify($events, $options = [])
     {
         foreach ($events as $event) {
             echo '<embed src="' . htmlspecialchars(strval($event)) . '" width="0" height="0" autostart="true" />';

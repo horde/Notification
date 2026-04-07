@@ -1,9 +1,10 @@
 <?php
+
 /**
  * The Alarm Decorator notifies the alarm system to push its notifications on
  * the stack.
  *
- * Copyright 2001-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2001-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -15,8 +16,7 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package  Notification
  */
-class Horde_Notification_Handler_Decorator_Alarm
-extends Horde_Notification_Handler_Decorator_Base
+class Horde_Notification_Handler_Decorator_Alarm extends Horde_Notification_Handler_Decorator_Base
 {
     /**
      * A Horde_Alarm instance.
@@ -54,9 +54,10 @@ extends Horde_Notification_Handler_Decorator_Base
      *
      * @throws Horde_Notification_Exception
      */
-    public function notify(Horde_Notification_Handler $handler,
-                           Horde_Notification_Listener $listener)
-    {
+    public function notify(
+        Horde_Notification_Handler $handler,
+        Horde_Notification_Listener $listener
+    ) {
         if ($listener instanceof Horde_Notification_Listener_Status) {
             try {
                 // TODO: Use $handler

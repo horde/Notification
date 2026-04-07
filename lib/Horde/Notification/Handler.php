@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2001-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2001-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -27,7 +28,7 @@ class Horde_Notification_Handler
      *
      * @var array
      */
-    protected $_decorators = array();
+    protected $_decorators = [];
 
     /**
      * Forces immediate attachment of a notification to a listener.
@@ -41,18 +42,18 @@ class Horde_Notification_Handler
      *
      * @var array
      */
-    protected $_handles = array(
-        'default' => array(
-            '*' => 'Horde_Notification_Event'
-        )
-    );
+    protected $_handles = [
+        'default' => [
+            '*' => 'Horde_Notification_Event',
+        ],
+    ];
 
     /**
      * Hash containing all attached listener objects.
      *
      * @var array
      */
-    protected $_listeners = array();
+    protected $_listeners = [];
 
     /**
      * The storage location where we store the messages.
@@ -104,7 +105,7 @@ class Horde_Notification_Handler
         if (class_exists($class)) {
             $this->_listeners[$listener] = new $class($params);
             if (!$this->_storage->exists($listener)) {
-                $this->_storage->set($listener, array());
+                $this->_storage->set($listener, []);
             }
             $this->_addTypes($listener);
             return $this->_listeners[$listener];
@@ -242,9 +243,12 @@ class Horde_Notification_Handler
      *               handler at the time notify() is called).
      * </pre>
      */
-    public function push($event, $type = null, array $flags = array(),
-                         $options = array())
-    {
+    public function push(
+        $event,
+        $type = null,
+        array $flags = [],
+        $options = []
+    ) {
         if ($event instanceof Horde_Notification_Event) {
             $event->flags = $flags;
             $event->type = $type;
@@ -283,22 +287,22 @@ class Horde_Notification_Handler
      *       function.
      * </pre>
      */
-    public function notify(array $options = array())
+    public function notify(array $options = [])
     {
         /* Convert the 'listeners' option into the format expected by the
          * notification handler. */
         if (!isset($options['listeners'])) {
             $listeners = array_keys($this->_listeners);
         } elseif (!is_array($options['listeners'])) {
-            $listeners = array($options['listeners']);
+            $listeners = [$options['listeners']];
         } else {
             $listeners = $options['listeners'];
         }
 
-        $events = array();
+        $events = [];
         $unattached = $this->_storage->exists('_unattached')
             ? $this->_storage->get('_unattached')
-            : array();
+            : [];
 
         /* Pass the message stack to all listeners and asks them to handle
          * their messages. */

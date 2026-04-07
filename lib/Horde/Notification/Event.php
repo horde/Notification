@@ -1,8 +1,9 @@
 <?php
+
 /**
  * The Horde_Notification_Event:: class defines a single notification event.
  *
- * Copyright 2002-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2002-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -26,7 +27,7 @@ class Horde_Notification_Event
      *
      * @var array
      */
-    public $flags = array();
+    public $flags = [];
 
     /**
      * The message type.
@@ -43,7 +44,7 @@ class Horde_Notification_Event
      * @param string $type  The event type.
      * @param array $flags  The flag array.
      */
-    public function __construct($data, $type = null, array $flags = array())
+    public function __construct($data, $type = null, array $flags = [])
     {
         $this->flags = $flags;
 
@@ -53,16 +54,16 @@ class Horde_Notification_Event
 
         if ($data instanceof PEAR_Error) {
             // DEPRECATED
-            if (($userinfo = $data->getUserInfo()) &&
-                  is_array($userinfo)) {
-                $userinfo_elts = array();
+            if (($userinfo = $data->getUserInfo())
+                  && is_array($userinfo)) {
+                $userinfo_elts = [];
                 foreach ($userinfo as $userinfo_elt) {
                     if (is_scalar($userinfo_elt)) {
                         $userinfo_elts[] = $userinfo_elt;
                     } elseif (is_object($userinfo_elt)) {
-                        if (is_callable(array($userinfo_elt, '__toString'))) {
+                        if (is_callable([$userinfo_elt, '__toString'])) {
                             $userinfo_elts[] = $userinfo_elt->__toString();
-                        } elseif (is_callable(array($userinfo_elt, 'getMessage'))) {
+                        } elseif (is_callable([$userinfo_elt, 'getMessage'])) {
                             $userinfo_elts[] = $userinfo_elt->getMessage();
                         }
                     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Test the basic listener class.
  *
@@ -7,15 +8,17 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+
 namespace Horde\Notification;
-use \Notification;
-use \Horde_Notification_Listener;
+
+use Notification;
+use Horde_Notification_Listener;
 use Horde_Test_Case;
 
 /**
  * Test the basic listener class.
  *
- * Copyright 2009-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2009-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -24,6 +27,7 @@ use Horde_Test_Case;
  * @package  Notification
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
+ * @coversNothing
  */
 class ListenerTest extends Horde_Test_Case
 {
@@ -63,10 +67,8 @@ class ListenerTest extends Horde_Test_Case
 
 class Horde_Notification_Listener_Mock extends Horde_Notification_Listener
 {
-    protected $_handles = array('mock' => 'Horde_Notification_Event');
+    protected $_handles = ['mock' => 'Horde_Notification_Event'];
     protected $_name = 'mock';
 
-    public function notify($events, $options = array())
-    {
-    }
+    public function notify($events, $options = []) {}
 }

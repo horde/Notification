@@ -1,9 +1,10 @@
 <?php
+
 /**
  * The Horde_Notification_Listener_Status:: class provides functionality for
  * displaying messages from the message stack as a status line.
  *
- * Copyright 2001-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2001-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -31,7 +32,7 @@ class Horde_Notification_Listener_Status extends Horde_Notification_Listener
      * @param array $events   The list of events to handle.
      * @param array $options  An array of options. Not used.
      */
-    public function notify($events, $options = array())
+    public function notify($events, $options = [])
     {
         if (!count($events)) {
             return;

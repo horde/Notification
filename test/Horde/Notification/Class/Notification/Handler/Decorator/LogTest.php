@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Test the logging notification handler class.
  *
@@ -7,16 +8,18 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+
 namespace Horde\Notification;
+
 use Horde_Test_Case;
-use \Horde_Notification_Handler_Decorator_Log;
-use \Horde_Notification_Event;
-use \Exception;
+use Horde_Notification_Handler_Decorator_Log;
+use Horde_Notification_Event;
+use Exception;
 
 /**
  * Test the logging notification handler class.
  *
- * Copyright 2009-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2009-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -25,6 +28,7 @@ use \Exception;
  * @package  Notification
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
+ * @coversNothing
  */
 
 class LogTest extends Horde_Test_Case
@@ -47,7 +51,7 @@ class LogTest extends Horde_Test_Case
         $this->logger->expects($this->once())
             ->method('__call')
             ->with('debug', $this->isType('array'));
-        $this->log->push($exception, array());
+        $this->log->push($exception, []);
     }
 
 }

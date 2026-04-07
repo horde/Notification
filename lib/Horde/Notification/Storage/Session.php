@@ -1,4 +1,5 @@
 <?php
+
 /**
  * A class that stores notifications in the session.
  *
@@ -11,7 +12,7 @@
 /**
  * A class that stores notifications in the session.
  *
- * Copyright 2009-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2009-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -21,8 +22,7 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Notification_Storage_Session
-implements Horde_Notification_Storage_Interface
+class Horde_Notification_Storage_Session implements Horde_Notification_Storage_Interface
 {
     /**
      * The stack name.
@@ -42,7 +42,7 @@ implements Horde_Notification_Storage_Interface
 
         /* Make sure the message stack is registered in the session. */
         if (!isset($_SESSION[$this->_stack])) {
-            $_SESSION[$this->_stack] = array();
+            $_SESSION[$this->_stack] = [];
         }
     }
 

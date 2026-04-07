@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Test the status event class.
  *
@@ -7,14 +8,16 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+
 namespace Horde\Notification\Notification\Event;
-use \Horde_Test_Case;
-use \Horde_Notification_Event_Status;
+
+use Horde_Test_Case;
+use Horde_Notification_Event_Status;
 
 /**
  * Test the status event class.
  *
- * Copyright 2009-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2009-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -23,6 +26,7 @@ use \Horde_Notification_Event_Status;
  * @package  Notification
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
+ * @coversNothing
  */
 class StatusTest extends Horde_Test_Case
 {
@@ -35,7 +39,7 @@ class StatusTest extends Horde_Test_Case
 
     public function testMethodTostringHasUnescapedResultIfContentRawFlagIsSet()
     {
-        $event = new Horde_Notification_Event_Status('<b>test</b>', null, array('content.raw'));
+        $event = new Horde_Notification_Event_Status('<b>test</b>', null, ['content.raw']);
         $this->assertEquals('<b>test</b>', (string) $event);
     }
 

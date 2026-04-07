@@ -1,4 +1,5 @@
 <?php
+
 /**
  * A class that stores notifications in an object.
  *
@@ -11,7 +12,7 @@
 /**
  * A class that stores notifications in an object.
  *
- * Copyright 2010-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2010-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -21,15 +22,14 @@
  * @author   Jan Schneider <jan@horde.org>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Notification_Storage_Object
-implements Horde_Notification_Storage_Interface
+class Horde_Notification_Storage_Object implements Horde_Notification_Storage_Interface
 {
     /**
      * Holds the notifications pushed into this storage object.
      *
      * @var array
      */
-    public $notifications = array();
+    public $notifications = [];
 
     /**
      * Return the given stack from the notification store.

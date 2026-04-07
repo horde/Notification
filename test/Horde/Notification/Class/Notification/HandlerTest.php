@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Test the basic notification handler class.
  *
@@ -7,18 +8,20 @@
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+
 namespace Horde\Notification;
+
 use Horde_Test_Case as TestCase;
-use \Notification;
-use \Horde_Notification_Listener;
-use \Horde_Notification_Storage_Session;
-use \Horde_Notification_Handler;
-use \Horde_Notification_Event;
+use Notification;
+use Horde_Notification_Listener;
+use Horde_Notification_Storage_Session;
+use Horde_Notification_Handler;
+use Horde_Notification_Event;
 
 /**
  * Test the basic notification handler class.
  *
- * Copyright 2009-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2009-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -27,6 +30,7 @@ use \Horde_Notification_Event;
  * @package  Notification
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
+ * @coversNothing
  */
 
 class HandlerTest extends TestCase
@@ -61,7 +65,9 @@ class HandlerTest extends TestCase
         $this->assertInstanceOf(
             'Horde_Notification_Listener_Audio',
             $this->handler->attach(
-                'MyAudio', array(), 'Horde_Notification_Listener_Audio'
+                'MyAudio',
+                [],
+                'Horde_Notification_Listener_Audio'
             )
         );
     }
@@ -69,14 +75,14 @@ class HandlerTest extends TestCase
     public function testMethodAttachHasPostconditionThatTheListenerGotInitializedWithTheProvidedParmeters()
     {
         $this->expectException('Horde_Exception');
-        $listener = $this->handler->attach('dummy', array('test'));
-        $this->assertEquals(array('test'), $listener->params);
+        $listener = $this->handler->attach('dummy', ['test']);
+        $this->assertEquals(['test'], $listener->params);
     }
 
     public function testMethodAttachHasPostconditionThatTheListenerStackGotInitializedAsArray()
     {
         $this->handler->attach('audio');
-        $this->assertEquals(array(), $_SESSION['test']['audio']);
+        $this->assertEquals([], $_SESSION['test']['audio']);
     }
 
     public function testMethodAttachThrowsExceptionIfTheListenerTypeIsUnknown()
@@ -169,11 +175,11 @@ class HandlerTest extends TestCase
     {
         $event = new Horde_Notification_Event('test');
         $this->handler->attach('audio');
-        $this->handler->push('test', 'audio', array(), array('immediate' => true));
+        $this->handler->push('test', 'audio', [], ['immediate' => true]);
         $result = array_shift($_SESSION['test']['audio']);
         $this->assertNotNull($result);
         $this->assertInstanceOf('Horde_Notification_Event', $result);
-        $this->assertEquals(array(), $result->flags);
+        $this->assertEquals([], $result->flags);
         $this->assertEquals('audio', $result->type);
     }
 
@@ -181,11 +187,11 @@ class HandlerTest extends TestCase
     {
         $this->expectException('Horde_Exception');
         $this->handler->attach('dummy');
-        $this->handler->push(new Exception('test'), null, array(), array('immediate' => true));
+        $this->handler->push(new Exception('test'), null, [], ['immediate' => true]);
         $result = array_shift($_SESSION['test']['dummy']);
         $this->assertNotNull($result);
         $this->assertInstanceOf('Horde_Notification_Event', $result);
-        $this->assertEquals(array(), $result->flags);
+        $this->assertEquals([], $result->flags);
         $this->assertEquals('status', $result->type);
     }
 
@@ -193,11 +199,11 @@ class HandlerTest extends TestCase
     {
         $this->expectException('Horde_Exception');
         $this->handler->attach('dummy');
-        $this->handler->push('test', null, array(), array('immediate' => true));
+        $this->handler->push('test', null, [], ['immediate' => true]);
         $result = array_shift($_SESSION['test']['dummy']);
         $this->assertNotNull($result);
         $this->assertInstanceOf('Horde_Notification_Event', $result);
-        $this->assertEquals(array(), $result->flags);
+        $this->assertEquals([], $result->flags);
         $this->assertEquals('status', $result->type);
     }
 
@@ -210,7 +216,7 @@ class HandlerTest extends TestCase
         $result = array_shift($dummy->events);
         $this->assertNotNull($result);
         $this->assertInstanceOf('Horde_Notification_Event', $result);
-        $this->assertEquals(array(), $result->flags);
+        $this->assertEquals([], $result->flags);
         $this->assertEquals('dummy', $result->type);
     }
 
@@ -219,11 +225,11 @@ class HandlerTest extends TestCase
         $this->expectException('Horde_Exception');
         $dummy = $this->handler->attach('dummy');
         $this->handler->push('test', 'dummy');
-        $this->handler->notify(array('listeners' => 'dummy'));
+        $this->handler->notify(['listeners' => 'dummy']);
         $result = array_shift($dummy->events);
         $this->assertNotNull($result);
         $this->assertInstanceOf('Horde_Notification_Event', $result);
-        $this->assertEquals(array(), $result->flags);
+        $this->assertEquals([], $result->flags);
         $this->assertEquals('dummy', $result->type);
     }
 

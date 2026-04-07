@@ -1,8 +1,9 @@
 <?php
+
 /**
  * Define the functions needed for a Decorator instance.
  *
- * Copyright 2001-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2001-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -23,9 +24,7 @@ class Horde_Notification_Handler_Decorator_Base
      *                                         Horde_Notification_Handler for
      *                                         details).
      */
-    public function push(Horde_Notification_Event $event, $options)
-    {
-    }
+    public function push(Horde_Notification_Event $event, $options) {}
 
     /**
      * Listeners are handling their messages.
@@ -36,9 +35,9 @@ class Horde_Notification_Handler_Decorator_Base
      *
      * @throws Horde_Notification_Exception
      */
-    public function notify(Horde_Notification_Handler $handler,
-                           Horde_Notification_Listener $listener)
-    {
-    }
+    public function notify(
+        Horde_Notification_Handler $handler,
+        Horde_Notification_Listener $listener
+    ) {}
 
 }
