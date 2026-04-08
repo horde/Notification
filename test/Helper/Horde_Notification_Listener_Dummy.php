@@ -1,8 +1,6 @@
 <?php
 
-namespace Horde\Notification;
-
-use Horde_Notification_Listener;
+declare(strict_types=1);
 
 class Horde_Notification_Listener_Dummy extends Horde_Notification_Listener
 {
@@ -19,9 +17,8 @@ class Horde_Notification_Listener_Dummy extends Horde_Notification_Listener
         ];
     }
 
-    public function notify($events, $options = [])
+    public function notify($events, $options = []): void
     {
         $this->events = $events;
     }
-
 }
