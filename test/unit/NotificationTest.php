@@ -9,6 +9,7 @@ use Horde_Notification_Handler;
 use Horde_Notification_Storage_Object;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
+use Horde_Notification_Storage_Session;
 
 #[CoversClass(Horde_Notification::class)]
 #[CoversClass(Horde_Notification_Handler::class)]
@@ -37,7 +38,7 @@ class Horde_Notification_Instance extends Horde_Notification
 {
     public static function newInstance(string $stack): Horde_Notification_Handler
     {
-        $storage = new \Horde_Notification_Storage_Session($stack);
+        $storage = new Horde_Notification_Storage_Session($stack);
         return new Horde_Notification_Handler($storage);
     }
 }

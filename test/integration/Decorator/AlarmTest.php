@@ -6,6 +6,8 @@ namespace Horde\Notification\Test\Integration\Decorator;
 
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\TestCase;
+use Horde_Alarm;
+use Horde_Notification_Handler_Decorator_Alarm;
 
 #[CoversNothing]
 class AlarmTest extends TestCase
@@ -20,8 +22,8 @@ class AlarmTest extends TestCase
             $this->markTestSkipped('The Horde_Alarm package is not installed.');
         }
 
-        $this->alarm = $this->getMockForAbstractClass(\Horde_Alarm::class);
-        $this->alarm_handler = new \Horde_Notification_Handler_Decorator_Alarm(
+        $this->alarm = $this->getMockForAbstractClass(Horde_Alarm::class);
+        $this->alarm_handler = new Horde_Notification_Handler_Decorator_Alarm(
             $this->alarm,
             null
         );

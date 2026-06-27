@@ -9,6 +9,7 @@ use Horde_Notification_Event;
 use Horde_Notification_Handler_Decorator_Log;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\TestCase;
+use Horde_Log_Logger;
 
 #[CoversNothing]
 class LogTest extends TestCase
@@ -22,7 +23,7 @@ class LogTest extends TestCase
             $this->markTestSkipped('The Horde_Log package is not installed.');
         }
 
-        $this->logger = $this->createMock(\Horde_Log_Logger::class);
+        $this->logger = $this->createMock(Horde_Log_Logger::class);
         $this->log = new Horde_Notification_Handler_Decorator_Log(
             $this->logger
         );

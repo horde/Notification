@@ -13,6 +13,8 @@ use Horde_Notification_Storage_Interface;
 use Horde_Notification_Storage_Object;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
+use Horde_Exception;
+use Horde_Notification_Listener_Audio;
 
 #[CoversClass(Horde_Notification_Handler::class)]
 class HandlerTest extends TestCase
@@ -43,11 +45,11 @@ class HandlerTest extends TestCase
     public function testMethodAttachHasResultNotificationlistenerClassAsSpecifiedInParameterClass(): void
     {
         $this->assertInstanceOf(
-            \Horde_Notification_Listener_Audio::class,
+            Horde_Notification_Listener_Audio::class,
             $this->handler->attach(
                 'MyAudio',
                 [],
-                \Horde_Notification_Listener_Audio::class
+                Horde_Notification_Listener_Audio::class
             )
         );
     }
@@ -66,7 +68,7 @@ class HandlerTest extends TestCase
 
     public function testMethodAttachThrowsExceptionIfTheListenerTypeIsUnknown(): void
     {
-        $this->expectException(\Horde_Exception::class);
+        $this->expectException(Horde_Exception::class);
         $this->handler->attach('MyAudio');
         $this->fail('No exception!');
     }
@@ -80,7 +82,7 @@ class HandlerTest extends TestCase
 
     public function testMethodDetachThrowsExceptionIfTheListenerIsUnset(): void
     {
-        $this->expectException(\Horde_Exception::class);
+        $this->expectException(Horde_Exception::class);
         $this->handler->detach('MyAudio');
         $this->fail('No exception!');
     }

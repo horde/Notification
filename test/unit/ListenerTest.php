@@ -42,7 +42,5 @@ class Horde_Notification_Listener_Mock extends Horde_Notification_Listener
     protected $_handles = ['mock' => 'Horde_Notification_Event'];
     protected $_name = 'mock';
 
-    public function notify($events, $options = []): void
-    {
-    }
+    public function notify($events, $options = []): void {}
 }
